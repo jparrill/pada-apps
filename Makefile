@@ -12,7 +12,8 @@ all: build
 build: 
 	mkdir -p ${BIN_FOLDER}
 	@for file in $(shell ls ${CMD_FOLDER}) ; do \
-		$(GOBUILD) -o ${BIN_FOLDER}/$${file} -v -i "${CMD_FOLDER}/$${file}/main.go" ; \
+		echo "building: cmd/$${file}/main.go" ; \
+		$(GOBUILD) -o ${BIN_FOLDER}/$${file} -i "${CMD_FOLDER}/$${file}/main.go" ; \
 	done
 test: 
 	$(GOTEST) -v ./...
