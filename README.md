@@ -1,5 +1,8 @@
+![Go](https://github.com/jparrill/pada-apps/workflows/Go/badge.svg)
+
 # pada-apps for your i3 Bar
-Let's say that you wanna create your i3 bar applications using Golang...this is my take here
+
+Let's say that you wanna create your i3 bar applications using Golang...this is my take here, Applications in Golang for your i3Bar, w/e is fine meanwhile could execute custom scripts.
 
 ## Pada Apps
 
