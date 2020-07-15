@@ -25,19 +25,26 @@ func main() {
 	}
 
 	ifName := os.Args[1]
+	status, _ := CheckEth(ifName)
+	fmt.Printf("%s", status)
+}
 
+func CheckEth(ifName string) (string, int) {
 	byNameInterface, err := net.InterfaceByName(ifName)
+	var rc int
 
 	if err != nil {
-		fmt.Printf("No Int: %s %s", ifName, utils.Yellow(eth_icon))
-		os.Exit(0)
+		rc = 2
+		return utils.Warn(eth_icon), rc
 	}
 
 	addresses, _ := byNameInterface.Addrs()
 
 	if len(addresses) > 0 {
-		fmt.Printf("%s", utils.Info(eth_icon))
+		rc = 0
+		return utils.Info(eth_icon), rc
 	} else {
-		fmt.Printf("%s", utils.Erro(eth_icon))
+		rc = 1
+		return utils.Erro(eth_icon), rc
 	}
 }
