@@ -16,10 +16,7 @@ build:
 		$(GOBUILD) -o ${BIN_FOLDER}/$${file} -i "${CMD_FOLDER}/$${file}/main.go" ; \
 	done
 test: 
-	@for file in $(shell ls ${CMD_FOLDER}) ; do \
-		echo "testing: cmd/$${file}" ; \
-		$(GOTEST) -v "${CMD_FOLDER}/$${file}/" ; \
-	done
+	$(GOTEST) -v ./...
 clean: 
 	$(GOCLEAN)
 	rm -rf $(BIN_FOLDER)
