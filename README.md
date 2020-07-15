@@ -66,3 +66,11 @@ rm -rf "/home/jparrill/go/src/github.com/jparrill/pada-apps/bin"
 λ pada-apps git:(master) [⇡!] via 🐹 v1.14.3 ls bin
 ls: cannot access 'bin': No such file or directory
 ```
+
+
+## Testing
+
+- To launch the tests just execute this make target
+```
+make test
+```
