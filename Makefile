@@ -17,6 +17,8 @@ build:
 	done
 test: 
 	$(GOTEST) -v ./...
+cover:
+	$(GOTEST) --cover ./...
 clean: 
 	$(GOCLEAN)
 	rm -rf $(BIN_FOLDER)
