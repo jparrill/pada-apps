@@ -15,6 +15,7 @@ func TestNoIface(t *testing.T) {
 	_, rc := CheckEth("ens5")
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)
+		t.Fail()
 	}
 }
 
@@ -23,6 +24,7 @@ func TestDiscIface(t *testing.T) {
 	_, rc := CheckEth("ens4")
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)
+		t.Fail()
 	}
 }
 
@@ -31,6 +33,7 @@ func TestGoodIface(t *testing.T) {
 	_, rc := CheckEth("wlp2s0")
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)
+		t.Fail()
 	}
 }
 
@@ -39,6 +42,7 @@ func TestEmptyIface(t *testing.T) {
 	_, rc := CheckEth("")
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)
+		t.Fail()
 	}
 }
 
@@ -47,5 +51,6 @@ func TestHiddenCharIface(t *testing.T) {
 	_, rc := CheckEth(" ")
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)
+		t.Fail()
 	}
 }
