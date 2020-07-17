@@ -30,6 +30,11 @@ jobs:
             dep ensure
         fi
 
+    - name: Install Node dependencies
+      run: |
+          sudo apt-get update
+          sudo apt-get install lm-sensors -y
+
     - name: Build
       run: make
 
