@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 	"testing"
+
+	"github.com/jparrill/pada-apps/pkg/utils"
 )
 
 func TestMain(m *testing.M) {
@@ -19,9 +21,8 @@ func TestIslmSensorsInstalled(t *testing.T) {
 }
 
 func TestGetCoreTemp(t *testing.T) {
-	// Patching for GH Actions
-	//expected := 0
-	expected := 1
+	utils.SkipCI(t)
+	expected := 0
 	_, rc := getCoreTemp()
 	if rc != expected {
 		t.Errorf("want: %d got: %d", expected, rc)

@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"net"
 	"os"
 	"testing"
+
+	"github.com/jparrill/pada-apps/pkg/utils"
 )
 
 func TestMain(m *testing.M) {
@@ -21,10 +22,8 @@ func TestNoIface(t *testing.T) {
 }
 
 func TestDiscIface(t *testing.T) {
-	// This testCase could not be added to CI, this is why the
-	// result is 2 and not 1 as should be
-	//expected := 1
-	expected := 2
+	utils.SkipCI(t)
+	expected := 1
 	iface := getInterface("disconnected")
 	_, rc := CheckEth(iface)
 	if rc != expected {
@@ -59,31 +58,4 @@ func TestHiddenCharIface(t *testing.T) {
 		t.Errorf("want: %d got: %d", expected, rc)
 		t.Fail()
 	}
-}
-
-func getInterface(iface_status string) string {
-	ifaces, _ := net.Interfaces()
-	var result string
-
-	for _, i := range ifaces {
-		addrs, _ := i.Addrs()
-
-		if iface_status == "disconnected" {
-			if len(addrs) < 1 {
-				//fmt.Printf("DISCONNECTED %v: %v\n", i.Name, addrs)
-				result = i.Name
-			}
-
-		} else if iface_status == "connected" {
-			if len(addrs) > 0 {
-				//fmt.Printf("CONNECTED %v: %s\n", i.Name, addrs[0])
-				result = i.Name
-			}
-
-		} else {
-			panic("Case not covered")
-		}
-	}
-
-	return result
 }

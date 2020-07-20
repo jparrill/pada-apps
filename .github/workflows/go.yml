@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    name: Build
+    name: Build & Test Commands
     runs-on: ubuntu-latest
     steps:
 
@@ -32,15 +32,14 @@ jobs:
 
     - name: Install Node dependencies
       run: |
-          sudo apt-get update
-          sudo apt-get install lm-sensors -y
-          sudo sensors-detect --auto
+          sudo apt update
+          sudo apt install lm-sensors build-essential -y
 
     - name: Build
       run: make
 
-    - name: Test
-      run: make test
+    - name: Test CI
+      run: make test_ci
 
     - name: Coverage
       run: make cover
