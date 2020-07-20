@@ -63,13 +63,13 @@ func main() {
 
 	temp, _ := getCoreTemp()
 	if int(temp) >= 30 && int(temp) < 60 {
-		fmt.Printf("%s %s %s", utils.Green(tmp_icon), utils.White(temp), utils.White(suffix))
+		fmt.Printf("%s %s%s", utils.Green(tmp_icon), utils.White(temp), utils.White(suffix))
 	} else if int(temp) >= 65 && int(temp) <= 80 {
-		fmt.Printf("%s %s %s", utils.Green(tmp_icon), utils.Warn(temp), utils.Warn(suffix))
+		fmt.Printf("%s %s%s", utils.Green(tmp_icon), utils.Warn(temp), utils.Warn(suffix))
 	} else if int(temp) > 80 && int(temp) <= 95 {
-		fmt.Printf("%s %s %s", utils.Green(tmp_icon), utils.Erro(temp), utils.Erro(suffix))
+		fmt.Printf("%s %s%s", utils.Green(tmp_icon), utils.Erro(temp), utils.Erro(suffix))
 	} else {
-		fmt.Printf("%s %s %s", utils.Green(tmp_icon), utils.Erro("ERR"), utils.Erro(suffix))
+		fmt.Printf("%s %s%s", utils.Green(tmp_icon), utils.Erro("ERR"), utils.Erro(suffix))
 	}
 
 }
