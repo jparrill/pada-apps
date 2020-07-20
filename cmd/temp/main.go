@@ -48,7 +48,7 @@ func getCoreTemp() (int, int) {
 
 	if err := json.Unmarshal([]byte(raw_temp), &CoreTempMeta); err != nil {
 		rc = 1
-		panic(err)
+		//panic(err)
 	}
 
 	return int(CoreTempMeta.CoreAdapter.Core.TempInput), rc

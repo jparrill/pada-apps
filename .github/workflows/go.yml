@@ -34,6 +34,7 @@ jobs:
       run: |
           sudo apt-get update
           sudo apt-get install lm-sensors -y
+          sudo sensors-detect --auto
 
     - name: Build
       run: make
